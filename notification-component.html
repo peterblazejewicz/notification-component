@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="notification-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `notification-component`
+     * Simple toast-like native web component
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class NotificationComponent extends Polymer.Element {
+      static get is() { return 'notification-component'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'notification-component'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(NotificationComponent.is, NotificationComponent);
+  </script>
+</dom-module>
