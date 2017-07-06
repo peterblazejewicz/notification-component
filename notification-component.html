@@ -1,36 +1,58 @@
-<link rel="import" href="../polymer/polymer-element.html">
+<template>
+  <style>
+    :host {
+      position: fixed;
+      display: inline-block;
+    }
+    /* visible on the top */
+    :host([top]) {
+      content: "top";
+    }
+    /* visible on the bottom */
+    :host([bottom]) {
+      content: "bottom";
+    }
+    /* visible on the right */
+    :host([right]) {
+      content: "right"
+    }
+    /* visible on the left */
+    :host([left]) {
+      content: "left"
+    }
 
-<dom-module id="notification-component">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
-  </template>
 
-  <script>
+  </style>
+  {{text}}
+</template>
+
+<script>
+  (() => {
     /**
-     * `notification-component`
-     * Simple toast-like native web component
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class NotificationComponent extends Polymer.Element {
+    * `notification-component`
+    * Simple toast-like native web component
+    *
+    * @customElement
+    * @demo demo/index.html
+    */
+    class NotificationComponent extends HTMLElement {
       static get is() { return 'notification-component'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'notification-component'
-          }
-        };
+      static get observedAttributes() {
+        return [
+          'top',
+          'bottom',
+          'right',
+          'left'
+        ]
       }
+
+      constructor(){
+        super();
+        this.attachShadow({mode: 'open'});
+      }
+
     }
 
     window.customElements.define(NotificationComponent.is, NotificationComponent);
-  </script>
-</dom-module>
+  })()
+</script>
