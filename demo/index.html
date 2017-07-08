@@ -22,9 +22,15 @@
       <h3>Basic notification-component demo</h3>
       <demo-snippet>
         <template>
-          <notification-component></notification-component>
+          <button onclick="showNotification()">Show notification</button>
+          <notification-component id="notification"></notification-component>
         </template>
       </demo-snippet>
     </div>
+    <script>
+      function showNotification(){
+        document.querySelector('#notification').show();
+      }
+    </script>
   </body>
 </html>
