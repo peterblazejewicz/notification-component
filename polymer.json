@@ -3,5 +3,11 @@
     "rules": [
       "polymer-2"
     ]
-  }
+  },
+  "builds": [
+    {
+      "preset":  "es6-unbundled",
+      "addServiceWorker": false
+    }
+  ]
 }
