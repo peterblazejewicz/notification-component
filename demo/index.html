@@ -23,13 +23,13 @@
       <demo-snippet>
         <template>
           <button onclick="showNotification()">Show notification</button>
-          <notification-component id="notification"></notification-component>
+          <notification-component id="notification" bottom left></notification-component>
         </template>
       </demo-snippet>
     </div>
     <script>
       function showNotification(){
-        document.querySelector('#notification').show();
+        document.querySelector('#notification').removeAttribute("bottom");
       }
     </script>
   </body>

@@ -13,36 +13,36 @@
   </head>
   <body>
 
-    <test-fixture id="BasicTestFixture">
+    <test-fixture id="bottom-fixture">
       <template>
-        <notification-component></notification-component>
+        <notification-component bottom></notification-component>
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
+    <test-fixture id="top-fixture">
       <template>
-        <notification-component prop1="new-prop1"></notification-component>
+        <notification-component top></notification-component>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="left-fixture">
+      <template>
+        <notification-component left></notification-component>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="right-fixture">
+      <template>
+        <notification-component right></notification-component>
       </template>
     </test-fixture>
 
     <script>
-      suite('notification-component', function() {
+      suite('notification-component position attributes', function() {
 
-        test('instantiating the element with default properties works', function() {
-          var element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'notification-component');
-          var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello notification-component!');
-        });
-
-        test('setting a property on the element works', function() {
-          // Create a test fixture
-          var element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+        test('bottom attribute can be read', function() {
+          var element = fixture('bottom-fixture');
+          assert.equal(element.bottom, 'bottom');
         });
 
       });
